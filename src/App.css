@@ -62,7 +62,9 @@
   font-weight: 700;
   color: rgba(255, 255, 255, 0.22);
   text-shadow: 0 20px 40px rgba(15, 23, 42, 0.4);
-  animation: symbol-float 10s ease-in-out infinite;
+  animation: symbol-float 10s ease-in-out infinite, symbol-blink 3.2s ease-in-out infinite;
+  transition: transform 0.4s ease, color 0.4s ease, text-shadow 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+  opacity: 0.85;
 }
 
 .background-symbol--one {
@@ -90,6 +92,35 @@
   50% {
     transform: translate3d(0, -10px, 0) rotate(4deg);
   }
+}
+
+@keyframes symbol-blink {
+  0%, 100% {
+    opacity: 0.75;
+    filter: drop-shadow(0 20px 40px rgba(15, 23, 42, 0.4));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 28px 55px rgba(99, 102, 241, 0.55));
+  }
+}
+
+.app-shell:hover .background-symbol {
+  color: rgba(255, 255, 255, 0.32);
+  text-shadow: 0 25px 55px rgba(79, 70, 229, 0.45);
+  opacity: 1;
+}
+
+.app-shell:hover .background-symbol--one {
+  transform: translate3d(0, -8px, 0) scale(1.08) rotate(6deg);
+}
+
+.app-shell:hover .background-symbol--two {
+  transform: translate3d(0, -10px, 0) scale(1.1) rotate(-4deg);
+}
+
+.app-shell:hover .background-symbol--three {
+  transform: translate3d(0, -8px, 0) scale(1.06) rotate(5deg);
 }
 
 .panel {
