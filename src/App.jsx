@@ -18,6 +18,11 @@ function App() {
 
   return (
     <div className="app-shell">
+      <div className="background-symbols" aria-hidden="true">
+        <span className="background-symbol background-symbol--one">✦</span>
+        <span className="background-symbol background-symbol--two">✶</span>
+        <span className="background-symbol background-symbol--three">✺</span>
+      </div>
       <svg style={{ position: 'absolute', width: 0, height: 0 }}>
         <defs>
           <linearGradient id="star-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
