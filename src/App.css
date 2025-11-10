@@ -36,6 +36,17 @@
   text-align: center;
   white-space: nowrap;
   letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.logo-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  filter: drop-shadow(0 4px 20px rgba(251, 191, 36, 0.6));
+  flex-shrink: 0;
 }
 
 .panel {
