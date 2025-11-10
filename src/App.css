@@ -1,0 +1,162 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #eef2ff, #f8fafc 60%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.panel {
+  width: min(420px, calc(100% - 2rem));
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  background-color: #ffffff;
+  box-shadow: 0 40px 80px -30px rgba(15, 23, 42, 0.25);
+}
+
+.success-state {
+  display: grid;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.success-state h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+}
+
+.success-state p {
+  color: #475569;
+}
+
+.success-state button {
+  justify-self: center;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.success-state button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 15px 30px -20px rgba(79, 70, 229, 0.8);
+}
+
+.login-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.login-form__header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #111827;
+}
+
+.login-form__header p {
+  margin: 0.35rem 0 0;
+  color: #64748b;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.form-field label {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.form-field input {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  color: #0f172a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.password-field {
+  display: flex;
+  align-items: center;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  overflow: hidden;
+}
+
+.password-field input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.75rem 1rem;
+  box-shadow: none;
+}
+
+.password-field:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+.toggle-password {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-left: 1px solid #e2e8f0;
+  background: transparent;
+  color: #6366f1;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toggle-password:hover {
+  background-color: rgba(99, 102, 241, 0.08);
+}
+
+.field-error {
+  font-size: 0.85rem;
+  color: #ef4444;
+}
+
+.form-alert {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background-color: rgba(239, 68, 68, 0.08);
+  color: #b91c1c;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.submit-button {
+  padding: 0.9rem 1.2rem;
+  border-radius: 0.9rem;
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px -22px rgba(99, 102, 241, 0.9);
+}
+
+.submit-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
