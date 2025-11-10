@@ -18,6 +18,7 @@ function App() {
 
   return (
     <div className="app-shell">
+      <h1 className="background-heading">స్వాగతం సుస్వాగతం</h1>
       <div className="panel">
         {authState.status === 'success' ? (
           <SuccessState user={authState.user} onReset={() => setAuthState({ status: 'idle' })} />
