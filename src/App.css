@@ -160,6 +160,50 @@
   background-color: rgba(99, 102, 241, 0.08);
 }
 
+.captcha-field {
+  display: flex;
+  align-items: center;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  overflow: hidden;
+}
+
+.captcha-field input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.75rem 1rem;
+  box-shadow: none;
+}
+
+.captcha-field:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+.refresh-captcha {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-left: 1px solid #e2e8f0;
+  background: transparent;
+  color: #6366f1;
+  font-weight: 600;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.refresh-captcha:hover:not(:disabled) {
+  background-color: rgba(99, 102, 241, 0.08);
+  transform: rotate(180deg);
+}
+
+.refresh-captcha:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .field-error {
   font-size: 0.85rem;
   color: #ef4444;
