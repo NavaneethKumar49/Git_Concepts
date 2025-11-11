@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import LoginForm from './components/LoginForm.jsx';
 import './App.css';
 import developerImage from './images/image.png';
 
 function App() {
   const [authState, setAuthState] = useState({ status: 'idle' });
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   const handleLogin = async (credentials) => {
     setAuthState({ status: 'submitting' });
@@ -16,6 +17,11 @@ function App() {
       setAuthState({ status: 'error', message: error.message });
     }
   };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <div className="app-shell">
@@ -51,6 +57,9 @@ function App() {
           <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="url(#star-gradient)" stroke="#f59e0b" strokeWidth="1.5" strokeLinejoin="round"/>
         </svg>
       </h1>
+      <p className="timestamp" role="status" aria-live="polite">
+        {currentTime.toLocaleString()}
+      </p>
       <div className="panel">
         {authState.status === 'success' ? (
           <SuccessState user={authState.user} onReset={() => setAuthState({ status: 'idle' })} />
