@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import LoginForm from './components/LoginForm.jsx';
 import './App.css';
 import developerImage from './images/image.png';
 
+const NAV_ITEMS = [
+  { id: 'home', label: 'Home', description: 'Return to the main sign-in experience.' },
+  { id: 'about', label: 'About', description: 'Learn more about our secure account platform.' },
+  { id: 'services', label: 'Services', description: 'Discover the authentication services we provide.' },
+  { id: 'contact', label: 'Contact', description: 'Need help? Reach out to our team any time.' },
+  { id: 'support', label: 'Support', description: 'Browse FAQs and support resources for quick answers.' }
+];
+
 function App() {
   const [authState, setAuthState] = useState({ status: 'idle' });
+  const [activeNavItem, setActiveNavItem] = useState(NAV_ITEMS[0].id);
 
   const handleLogin = async (credentials) => {
     setAuthState({ status: 'submitting' });
@@ -17,8 +26,32 @@ function App() {
     }
   };
 
+  const activeNavDescription = useMemo(
+    () => NAV_ITEMS.find((item) => item.id === activeNavItem)?.description,
+    [activeNavItem]
+  );
+
+  const handleNavItemSelect = (itemId) => {
+    setActiveNavItem(itemId);
+  };
+
   return (
     <div className="app-shell">
+      <header className="top-nav">
+        <div className="top-nav__brand">SecurePortal</div>
+        <nav className="top-nav__menu" aria-label="Primary navigation">
+          {NAV_ITEMS.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              className={`top-nav__link ${activeNavItem === item.id ? 'is-active' : ''}`}
+              onClick={() => handleNavItemSelect(item.id)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+      </header>
       <div className="background-symbols" aria-hidden="true">
         <span className="background-symbol background-symbol--one">✦</span>
         <span className="background-symbol background-symbol--two">✶</span>
@@ -51,6 +84,7 @@ function App() {
           <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="url(#star-gradient)" stroke="#f59e0b" strokeWidth="1.5" strokeLinejoin="round"/>
         </svg>
       </h1>
+      <p key={activeNavItem} className="nav-context" role="status">{activeNavDescription}</p>
       <div className="panel">
         {authState.status === 'success' ? (
           <SuccessState user={authState.user} onReset={() => setAuthState({ status: 'idle' })} />
