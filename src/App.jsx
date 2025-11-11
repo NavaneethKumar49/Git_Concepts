@@ -2,6 +2,7 @@ import { useState } from 'react';
 import LoginForm from './components/LoginForm.jsx';
 import './App.css';
 import developerImage from './images/image.png';
+import reactStackImage from './images/react.png';
 
 function App() {
   const [authState, setAuthState] = useState({ status: 'idle' });
@@ -57,6 +58,14 @@ function App() {
         ) : (
           <LoginForm onSubmit={handleLogin} status={authState.status} errorMessage={authState.message} />
         )}
+      </div>
+      <div className="bottom-visual">
+        <div className="bottom-visual__glow" aria-hidden="true" />
+        <img
+          src={reactStackImage}
+          alt="React Native platform on devices"
+          className="bottom-visual__image"
+        />
       </div>
     </div>
   );
