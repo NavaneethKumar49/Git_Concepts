@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { id: 'home', label: 'Home', description: 'Return to the main sign-in experience.' },
   { id: 'about', label: 'About', description: 'Learn more about our secure account platform.' },
   { id: 'services', label: 'Services', description: 'Discover the authentication services we provide.' },
+  { id: 'blogs', label: 'Blogs', description: 'Read our latest articles, insights, and updates on security and technology.' },
   { id: 'contact', label: 'Contact', description: 'Need help? Reach out to our team any time.' },
   { id: 'support', label: 'Support', description: 'Browse FAQs and support resources for quick answers.' }
 ];
